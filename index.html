@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      const inputString = prompt("Введіть довільний рядок:");
+
+      const userId = parseInt(prompt("Введіть ID (ціле число):"), 10);
+
+      switch (userId) {
+        case 1:
+          const indexForUnicode = prompt(
+            "Введіть індекс для отримання unicode:"
+          );
+          const unicodeValue = inputString.charCodeAt(indexForUnicode);
+          console.log(
+            `Unicode для символу на позиції ${indexForUnicode}: ${unicodeValue}`
+          );
+          break;
+
+        case 2:
+          const indexForDeletion = prompt(
+            "Введіть індекс для видалення символу:"
+          );
+          const stringWithoutChar =
+            inputString.slice(0, indexForDeletion) +
+            inputString.slice(indexForDeletion + 1);
+          console.log(`Рядок після видалення символу: ${stringWithoutChar}`);
+          break;
+
+        case 3:
+          const indexForReplacement = prompt(
+            "Введіть індекс для заміни символу:"
+          );
+          const randomSmileys = [
+            "😊",
+            "😍",
+            "🥳",
+            "😎",
+            "🤓",
+            "😜",
+            "😇",
+            "🤩",
+            "😄",
+            "😁",
+          ];
+          const randomSmiley = randomSmileys[getRandomIntInclusive(0, 9)];
+          const stringWithReplacement =
+            inputString.substring(0, indexForReplacement) +
+            randomSmiley +
+            inputString.substring(indexForReplacement + 1);
+          console.log(`Рядок після заміни символу: ${stringWithReplacement}`);
+          break;
+
+        case 4:
+          const letterCount = inputString.replace(/ /g, "").length;
+          console.log(`Кількість літер у рядку без пробілів: ${letterCount}`);
+          break;
+
+        default:
+          console.log("Невірний ID. Будь ласка, введіть коректний ID.");
+      }
+    </script>
+  </body>
+</html>
