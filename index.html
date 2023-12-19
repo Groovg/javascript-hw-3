@@ -29,13 +29,15 @@
           break;
 
         case 2:
-          const indexForDeletion = prompt(
-            "Введіть індекс для видалення символу:"
+          const indexForDeletion = Number(
+            prompt("Введіть індекс для видалення символу:")
           );
           const stringWithoutChar =
             inputString.slice(0, indexForDeletion) +
             inputString.slice(indexForDeletion + 1);
-          console.log(`Рядок після видалення символу: ${stringWithoutChar}`);
+          console.log(
+            `Рядок після видалення індексу ${indexForDeletion}: ${stringWithoutChar}`
+          );
           break;
 
         case 3:
